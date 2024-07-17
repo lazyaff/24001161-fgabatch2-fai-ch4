@@ -119,14 +119,14 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.UserScalarFieldEnum = {
+exports.Prisma.UsersScalarFieldEnum = {
   id: 'id',
   name: 'name',
   email: 'email',
   password: 'password'
 };
 
-exports.Prisma.ProfileScalarFieldEnum = {
+exports.Prisma.ProfilesScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
   identity_type: 'identity_type',
@@ -134,7 +134,7 @@ exports.Prisma.ProfileScalarFieldEnum = {
   address: 'address'
 };
 
-exports.Prisma.Bank_accountScalarFieldEnum = {
+exports.Prisma.Bank_accountsScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
   bank_name: 'bank_name',
@@ -142,7 +142,7 @@ exports.Prisma.Bank_accountScalarFieldEnum = {
   balance: 'balance'
 };
 
-exports.Prisma.TransactionScalarFieldEnum = {
+exports.Prisma.TransactionsScalarFieldEnum = {
   id: 'id',
   source_account_id: 'source_account_id',
   destination_account_id: 'destination_account_id',
@@ -161,10 +161,10 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  user: 'user',
-  profile: 'profile',
-  bank_account: 'bank_account',
-  transaction: 'transaction'
+  users: 'users',
+  profiles: 'profiles',
+  bank_accounts: 'bank_accounts',
+  transactions: 'transactions'
 };
 
 /**
