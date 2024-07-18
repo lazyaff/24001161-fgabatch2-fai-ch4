@@ -1,6 +1,6 @@
-const service = require("../services/user.service");
+const service = require("../services/account.service");
 
-const createUser = async (req, res) => {
+const createAccount = async (req, res) => {
     try {
         const body = req.body;
         const { valid, message } = await service.validateInput(body);
@@ -11,13 +11,14 @@ const createUser = async (req, res) => {
             });
         }
 
-        const data = await service.createUser(body);
+        const data = await service.createAccount(body);
         return res.json({
             success: true,
-            message: "User created successfully",
+            message: "Account created successfully",
             data,
         });
     } catch (error) {
+        console.log(error);
         return res.status(500).json({
             success: false,
             message: "Something went wrong",
@@ -25,12 +26,12 @@ const createUser = async (req, res) => {
     }
 };
 
-const getUsers = async (req, res) => {
+const getAccounts = async (req, res) => {
     try {
-        const data = await service.getUsers();
+        const data = await service.getAccounts();
         return res.json({
             success: true,
-            message: "Users fetched successfully",
+            message: "Accounts fetched successfully",
             data,
         });
     } catch (error) {
@@ -41,7 +42,7 @@ const getUsers = async (req, res) => {
     }
 };
 
-const getUser = async (req, res) => {
+const getAccount = async (req, res) => {
     const id = Number(req.params.id);
     if (isNaN(id)) {
         return res.status(400).json({
@@ -50,17 +51,17 @@ const getUser = async (req, res) => {
         });
     }
     try {
-        const data = await service.getUser(id);
+        const data = await service.getAccount(id);
         if (data) {
             return res.json({
                 success: true,
-                message: "User fetched successfully",
+                message: "Acoount fetched successfully",
                 data,
             });
         }
         return res.status(404).json({
             success: false,
-            message: "User not found",
+            message: "Acoount not found",
         });
     } catch (error) {
         return res.status(500).json({
@@ -71,7 +72,7 @@ const getUser = async (req, res) => {
 };
 
 module.exports = {
-    createUser,
-    getUsers,
-    getUser,
+    createAccount,
+    getAccounts,
+    getAccount,
 };

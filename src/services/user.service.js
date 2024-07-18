@@ -59,18 +59,11 @@ const getUser = async (id) => {
 };
 
 // validate input
-const validateInput = (body) => {
+const validateInput = async (body) => {
     if (!body.name) {
         return {
             valid: false,
             message: "Name is required",
-        };
-    }
-
-    if (!body.email) {
-        return {
-            valid: false,
-            message: "Email is required",
         };
     }
 
@@ -113,6 +106,25 @@ const validateInput = (body) => {
         return {
             valid: false,
             message: "Identity type is required",
+        };
+    }
+
+    if (!body.email) {
+        return {
+            valid: false,
+            message: "Email is required",
+        };
+    }
+
+    const user = await prisma.users.findFirst({
+        where: {
+            email: body.email,
+        },
+    });
+    if (user) {
+        return {
+            valid: false,
+            message: "Email already exists",
         };
     }
 
