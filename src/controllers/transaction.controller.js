@@ -1,6 +1,6 @@
-const service = require("../services/account.service");
+const service = require("../services/transaction.service");
 
-const createAccount = async (req, res) => {
+const createTransaction = async (req, res) => {
     try {
         const body = req.body;
         const { valid, message } = await service.validateInput(body);
@@ -11,10 +11,10 @@ const createAccount = async (req, res) => {
             });
         }
 
-        const data = await service.createAccount(body);
+        const data = await service.createTransaction(body);
         return res.json({
             success: true,
-            message: "Account created successfully",
+            message: "Transaction created successfully",
             data,
         });
     } catch (error) {
@@ -25,12 +25,12 @@ const createAccount = async (req, res) => {
     }
 };
 
-const getAccounts = async (req, res) => {
+const getTransactions = async (req, res) => {
     try {
-        const data = await service.getAccounts();
+        const data = await service.getTransactions();
         return res.json({
             success: true,
-            message: "Accounts fetched successfully",
+            message: "Transactions fetched successfully",
             data,
         });
     } catch (error) {
@@ -41,7 +41,7 @@ const getAccounts = async (req, res) => {
     }
 };
 
-const getAccount = async (req, res) => {
+const getTransaction = async (req, res) => {
     const id = Number(req.params.id);
     if (isNaN(id)) {
         return res.status(400).json({
@@ -50,17 +50,17 @@ const getAccount = async (req, res) => {
         });
     }
     try {
-        const data = await service.getAccount(id);
+        const data = await service.getTransaction(id);
         if (data) {
             return res.json({
                 success: true,
-                message: "Acoount fetched successfully",
+                message: "Transaction fetched successfully",
                 data,
             });
         }
         return res.status(404).json({
             success: false,
-            message: "Acoount not found",
+            message: "Transaction not found",
         });
     } catch (error) {
         return res.status(500).json({
@@ -71,7 +71,7 @@ const getAccount = async (req, res) => {
 };
 
 module.exports = {
-    createAccount,
-    getAccounts,
-    getAccount,
+    createTransaction,
+    getTransactions,
+    getTransaction,
 };
