@@ -1,10 +1,10 @@
 {
     "name": "banking-api",
     "version": "1.0.0",
-    "description": "an api that provides banking services",
+    "description": "The Banking API provides a comprehensive set of endpoints for managing and accessing various banking services. ",
     "main": "src/app.js",
     "scripts": {
-        "dev": "nodemon src/app.js",
+        "dev": "nodemon app.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "lazyaff",

@@ -1,7 +1,7 @@
 const { Router } = require("express");
-const userRouter = require("../routes/user.route");
-const accountRouter = require("../routes/account.route");
-const transactionRouter = require("../routes/transaction.route");
+const userRouter = require("./user.route");
+const accountRouter = require("./account.route");
+const transactionRouter = require("./transaction.route");
 
 const routes = Router();
 

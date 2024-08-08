@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const routes = require("./utils/routes");
+const routes = require("./routes");
 const setupSwagger = require("./utils/swagger");
 
 const app = express();
