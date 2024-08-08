@@ -21,6 +21,8 @@ const createUser = async (body) => {
         },
     });
 
+    delete user.password;
+
     return { user, profile };
 };
 

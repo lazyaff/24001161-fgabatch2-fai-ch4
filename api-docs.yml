@@ -52,7 +52,6 @@ paths:
                                         id: 7
                                         name: doe
                                         email: doejohn1@gmail.com
-                                        password: $2b$10$lRo/fzxRx2NSZki0xCu4W.vspbWKIKMdEA61jH71GBt.fxVsHH7g.
                                     profile:
                                         id: 4
                                         user_id: 7

@@ -1,11 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 const routes = require("./routes");
 const setupSwagger = require("./utils/swagger");
 
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(routes);
 
 // set up swagger
