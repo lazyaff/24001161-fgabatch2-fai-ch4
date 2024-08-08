@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
     title: Banking API
     version: "1.0.0"
-    description: "A simple Express banking API"
+    description: "The Banking API provides a comprehensive set of endpoints for managing and accessing various banking services. "
 paths:
     /api/v1/users:
         get:
