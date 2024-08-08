@@ -30,8 +30,6 @@ const setToken = (user, res) => {
 
     res.cookie("token", token, {
         httpOnly: true,
-        expires: new Date(Date.now() + 60 * 60 * 1000),
-        secure: process.env.NODE_ENV !== "development",
     });
 };
 
