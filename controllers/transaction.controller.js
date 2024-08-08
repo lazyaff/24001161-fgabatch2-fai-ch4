@@ -12,7 +12,7 @@ const createTransaction = async (req, res) => {
         }
 
         const data = await service.createTransaction(body);
-        return res.json({
+        return res.status(201).json({
             success: true,
             message: "Transaction created successfully",
             data,

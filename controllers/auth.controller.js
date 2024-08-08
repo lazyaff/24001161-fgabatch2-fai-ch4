@@ -36,12 +36,13 @@ const register = async (req, res) => {
         }
 
         const data = await service.createUser(body);
-        return res.json({
+        return res.status(201).json({
             success: true,
             message: "User registered successfully",
             data,
         });
     } catch (error) {
+        console.log(error);
         return res.status(500).json({
             success: false,
             message: "Something went wrong",

@@ -12,7 +12,7 @@ const createAccount = async (req, res) => {
         }
 
         const data = await service.createAccount(body);
-        return res.json({
+        return res.status(201).json({
             success: true,
             message: "Account created successfully",
             data,

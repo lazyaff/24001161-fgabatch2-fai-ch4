@@ -12,7 +12,7 @@ const createUser = async (req, res) => {
         }
 
         const data = await service.createUser(body);
-        return res.json({
+        return res.status(201).json({
             success: true,
             message: "User created successfully",
             data,
